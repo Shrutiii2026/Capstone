@@ -1,0 +1,13 @@
+{
+  "name": "securechat-final-submission",
+  "version": "1.0.0",
+  "description": "Final working version for submission.",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "ws": "^8.18.0"
+  }
+}
