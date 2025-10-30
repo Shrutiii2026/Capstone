@@ -128,6 +128,34 @@ document.addEventListener('DOMContentLoaded', () => {
       input.value = '';
     }
   });
+
+  // Reusable togglers
+function showLogin(e) {
+  if (e) e.preventDefault();
+  document.getElementById('loginForm').classList.remove('hidden');
+  document.getElementById('registerForm').classList.add('hidden');
+  document.getElementById('tabLogin')?.classList.add('active');
+  document.getElementById('tabRegister')?.classList.remove('active');
+}
+
+function showRegister(e) {
+  if (e) e.preventDefault();
+  document.getElementById('registerForm').classList.remove('hidden');
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('tabRegister')?.classList.add('active');
+  document.getElementById('tabLogin')?.classList.remove('active');
+}
+
+// Top tab buttons
+document.getElementById('tabLogin')?.addEventListener('click', showLogin);
+document.getElementById('tabRegister')?.addEventListener('click', showRegister);
+
+// Existing inline links reuse the same functions
+document.getElementById('goLogin')?.addEventListener('click', showLogin);
+document.getElementById('goRegister')?.addEventListener('click', showRegister);
+
+// Optional: ensure initial state (login shown by default)
+showLogin();
   
   $('#goRegister').addEventListener('click', (e) => { e.preventDefault(); $('#registerForm').classList.remove('hidden'); $('#loginForm').classList.add('hidden'); $('#tabRegister').classList.add('active'); $('#tabLogin').classList.remove('active'); });
   $('#goLogin').addEventListener('click', (e) => { e.preventDefault(); $('#loginForm').classList.remove('hidden'); $('#registerForm').classList.add('hidden'); $('#tabLogin').classList.add('active'); $('#tabRegister').classList.remove('active'); });
